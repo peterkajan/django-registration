@@ -90,10 +90,10 @@ class RegistrationForm(UserCreationForm):
         super(RegistrationForm, self).clean()
 
 
-class RegistrationFormTermsOfService(RegistrationForm):
+class RegistrationFormTermsOfServiceMixin(forms.Form):
     """
-    Subclass of ``RegistrationForm`` which adds a required checkbox
-    for agreeing to a site's Terms of Service.
+    Mixin implementing RegistrationFormTermsOfService functionality.
+    See RegistrationFormTermsOfService for details.
 
     """
     tos = forms.BooleanField(
@@ -105,10 +105,19 @@ class RegistrationFormTermsOfService(RegistrationForm):
     )
 
 
-class RegistrationFormUniqueEmail(RegistrationForm):
+class RegistrationFormTermsOfService(RegistrationFormTermsOfServiceMixin, RegistrationForm):
     """
-    Subclass of ``RegistrationForm`` which enforces uniqueness of
-    email addresses.
+    Subclass of ``RegistrationForm`` which adds a required checkbox
+    for agreeing to a site's Terms of Service.
+
+    """
+    pass
+
+
+class RegistrationFormUniqueEmailMixin(forms.Form):
+    """
+    Mixin implementing RegistrationFormUniqueEmail functionality.
+    See RegistrationFormUniqueEmail for details.
 
     """
     def clean_email(self):
@@ -122,14 +131,19 @@ class RegistrationFormUniqueEmail(RegistrationForm):
         return self.cleaned_data['email']
 
 
-class RegistrationFormNoFreeEmail(RegistrationForm):
+class RegistrationFormUniqueEmail(RegistrationFormUniqueEmailMixin, RegistrationForm):
     """
-    Subclass of ``RegistrationForm`` which disallows registration with
-    email addresses from popular free webmail services; moderately
-    useful for preventing automated spam registrations.
+    Subclass of ``RegistrationForm`` which enforces uniqueness of
+    email addresses.
 
-    To change the list of banned domains, pass a list of domains as
-    the keyword argument ``bad_domains`` when initializing the form.
+    """
+    pass
+
+
+class RegistrationFormNoFreeEmailMixin(forms.Form):
+    """
+    Mixin implementing RegistrationFormNoFreeEmail functionality.
+    See RegistrationFormNoFreeEmail for details.
 
     """
     bad_domains = ['aim.com', 'aol.com', 'email.com', 'gmail.com',
@@ -147,3 +161,16 @@ class RegistrationFormNoFreeEmail(RegistrationForm):
         if email_domain in self.bad_domains:
             raise forms.ValidationError(validators.FREE_EMAIL)
         return self.cleaned_data['email']
+
+
+class RegistrationFormNoFreeEmail(RegistrationFormNoFreeEmailMixin, RegistrationForm):
+    """
+    Subclass of ``RegistrationForm`` which disallows registration with
+    email addresses from popular free webmail services; moderately
+    useful for preventing automated spam registrations.
+
+    To change the list of banned domains, pass a list of domains as
+    the keyword argument ``bad_domains`` when initializing the form.
+
+    """
+    pass
