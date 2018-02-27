@@ -60,14 +60,14 @@ msgid ""
 "This email address cannot be registered. Please supply a different email "
 "address."
 msgstr ""
-"Táto e-mailová adresa sa už používá. Prosím zadajte inú e-mailovou adresu."
+"Táto e-mailová adresa sa už používá. Prosím zadajte inú e-mailovú adresu."
 
 #: validators.py:17
 msgid ""
 "This email address is already in use. Please supply a different email "
 "address."
 msgstr ""
-"Táto e-mailová adresa sa už používá. Prosím zadajte inú e-mailovou adresu."
+"Táto e-mailová adresa sa už používá. Prosím zadajte inú e-mailovú adresu."
 
 #: validators.py:19
 msgid ""
@@ -75,7 +75,7 @@ msgid ""
 "different email address."
 msgstr ""
 "Používanie voľných e-mailových adries je zakázané. Prosím zadajte inú e-"
-"mailovou adresu."
+"mailovú adresu."
 
 #: validators.py:21
 msgid "This name is reserved and cannot be registered."
@@ -83,7 +83,7 @@ msgstr "Toto meno je rezervované a nedá sa použiť."
 
 #: validators.py:22
 msgid "You must agree to the terms to register"
-msgstr "Musíte odsúhlasiť podmienky služby pre pokračovanie v registrácii."
+msgstr "Potvrďte, prosím, Váš súhlas s Podmienkami."
 
 #~ msgid "username"
 #~ msgstr "užívateľské meno"
