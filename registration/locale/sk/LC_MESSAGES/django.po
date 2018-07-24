@@ -60,14 +60,14 @@ msgid ""
 "This email address cannot be registered. Please supply a different email "
 "address."
 msgstr ""
-"Táto e-mailová adresa sa už používá. Prosím zadajte inú e-mailovú adresu."
+"Používateľ s touto emailovou adresou už existuje."
 
 #: validators.py:17
 msgid ""
 "This email address is already in use. Please supply a different email "
 "address."
 msgstr ""
-"Táto e-mailová adresa sa už používá. Prosím zadajte inú e-mailovú adresu."
+"Používateľ s touto emailovou adresou už existuje."
 
 #: validators.py:19
 msgid ""
